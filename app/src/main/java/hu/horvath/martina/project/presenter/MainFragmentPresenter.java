@@ -33,7 +33,7 @@ public class MainFragmentPresenter {
                 .subscribe(new DisposableSubscriber<Response>() {
                     @Override
                     public void onNext(Response response) {
-                        view.refreshMovies( response.getResults());
+                        view.refreshMovies(response.getResults());
                     }
 
                     @Override

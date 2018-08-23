@@ -10,4 +10,11 @@ public class Movie {
     @SerializedName("title")
     private String title;
 
+    public String getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
 }

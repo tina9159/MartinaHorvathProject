@@ -16,9 +16,6 @@ import hu.horvath.martina.project.view.interfaces.MainActivityView;
 
 public class MainActivity extends DaggerAppCompatActivity implements MainActivityView {
 
-    @BindView(R.id.text)
-    TextView text;
-
     @Inject
     MainActivityPresenter presenter;
 
@@ -27,7 +24,6 @@ public class MainActivity extends DaggerAppCompatActivity implements MainActivit
         AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
 
         if (savedInstanceState == null)
             getSupportFragmentManager()
