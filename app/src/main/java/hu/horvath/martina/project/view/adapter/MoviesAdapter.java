@@ -70,5 +70,9 @@ public class MoviesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         return movies.isEmpty() ? 1 : movies.size();
     }
 
+    public Movie getItem(int position) {
+        return movies.get(position);
+    }
+
 
 }

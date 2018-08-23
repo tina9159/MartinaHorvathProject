@@ -1,12 +1,11 @@
 package hu.horvath.martina.project.view.activity;
 
 import android.os.Bundle;
-import android.widget.TextView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 
 import javax.inject.Inject;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import dagger.android.AndroidInjection;
 import dagger.android.support.DaggerAppCompatActivity;
 import hu.horvath.martina.project.R;
@@ -30,6 +29,13 @@ public class MainActivity extends DaggerAppCompatActivity implements MainActivit
                     .beginTransaction()
                     .add(R.id.container, MainFragment.newInstance())
                     .commitAllowingStateLoss();
+    }
+
+    public void changeFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
 }

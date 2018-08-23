@@ -1,7 +1,5 @@
 package hu.horvath.martina.project.presenter;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import hu.horvath.martina.project.data.model.Movie;
@@ -12,7 +10,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subscribers.DisposableSubscriber;
 
-public class MainFragmentPresenter {
+public class MovieFragmentPresenter {
 
     //TODO Interface for presenter
 
@@ -22,7 +20,7 @@ public class MainFragmentPresenter {
     MainFragmentView view;
 
     @Inject
-    public MainFragmentPresenter(MainFragmentView view) {
+    public MovieFragmentPresenter(MainFragmentView view) {
         this.view = view;
     }
 

@@ -1,9 +1,6 @@
 package hu.horvath.martina.project.data.repository.remote;
 
 
-
-import java.util.List;
-
 import javax.inject.Inject;
 
 import hu.horvath.martina.project.data.api.MovieService;
@@ -25,6 +22,7 @@ public class MainRemoteRepositoryImpl implements MainRemoteRepository {
 
     @Override
     public Flowable<Response> getMovies(String query) {
+        //TODO Convert response to movie here
         return service.getMovies(API_KEY, query);
     }
 
