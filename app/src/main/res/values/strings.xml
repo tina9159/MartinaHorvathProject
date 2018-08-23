@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Project</string>
+    <string name="app_name">Movie</string>
     <string name="noItem">Nincs ilyen film!</string>
     <string name="titleText">Title:</string>
     <string name="dateText">Release date:</string>
