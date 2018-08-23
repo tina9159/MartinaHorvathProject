@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import hu.horvath.martina.project.R;
@@ -59,6 +61,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             MovieListViewHolder movieListViewHolder = ((MovieListViewHolder) holder);
 
             movieListViewHolder.title.setText(currentMovie.getTitle());
+            Glide.with(context).load("http://image.tmdb.org/t/p/w92/" + currentMovie.getPoster()).into(movieListViewHolder.image);
         }
     }
 

@@ -49,7 +49,6 @@ public class MainFragment extends DaggerFragment implements MainFragmentView {
         view = inflater.inflate(R.layout.fragment_main, container, false);
         context = getActivity();
 
-        presenter.getMovies("iron");
         presenter.getMovieById("1726");
 
         initViews();
@@ -62,7 +61,7 @@ public class MainFragment extends DaggerFragment implements MainFragmentView {
         recyclerView = view.findViewById(R.id.recyclerView);
         searchView = view.findViewById(R.id.searchView);
 
-        //TODO Into new class
+        //TODO Into new class MyOnQueryTextListener()
         searchView.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

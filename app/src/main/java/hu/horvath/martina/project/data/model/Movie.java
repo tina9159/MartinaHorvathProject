@@ -10,6 +10,13 @@ public class Movie {
     @SerializedName("title")
     private String title;
 
+    @SerializedName("poster_path")
+    private String poster;
+
+    public String getPoster() {
+        return poster;
+    }
+
     public String getId() {
         return id;
     }
