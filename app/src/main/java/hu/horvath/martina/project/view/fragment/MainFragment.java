@@ -30,11 +30,8 @@ public class MainFragment extends DaggerFragment implements MainFragmentView {
     @Inject
     MainFragmentPresenter presenter;
 
-    @BindView(R.id.searchView)
-    SearchView searchView;
-
-    @BindView(R.id.recyclerView)
-    RecyclerView recyclerView;
+    private android.support.v7.widget.SearchView searchView;
+    private RecyclerView recyclerView;
 
     private Context context;
     private View view;
@@ -50,25 +47,43 @@ public class MainFragment extends DaggerFragment implements MainFragmentView {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_main, container, false);
-
         context = getActivity();
-        ButterKnife.bind(Objects.requireNonNull(getActivity()));
 
         presenter.getMovies("iron");
         presenter.getMovieById("1726");
 
+        initViews();
+
         return view;
 
+    }
+
+    private void initViews() {
+        recyclerView = view.findViewById(R.id.recyclerView);
+        searchView = view.findViewById(R.id.searchView);
+
+        //TODO Into new class
+        searchView.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                //TODO Allowed to query with minimum 3 chars
+                presenter.getMovies(query);
+                return false;
+            }
+        });
     }
 
     @Override
     public void refreshMovies(List<Movie> movies) {
         MoviesAdapter adapter = new MoviesAdapter(context, movies);
 
-        RecyclerView rv = view.findViewById(R.id.recyclerView);
-
-        rv.setAdapter(adapter);
-        rv.setLayoutManager(new LinearLayoutManager(context));
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
     }
 
     @Override
