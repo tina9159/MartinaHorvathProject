@@ -6,7 +6,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import hu.horvath.martina.project.data.api.MainService;
+import hu.horvath.martina.project.data.api.MovieService;
 import hu.horvath.martina.project.util.Constants;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
@@ -31,8 +31,8 @@ public class AllModule {
 
     @Singleton
     @Provides
-    MainService provideMainService(Retrofit retrofit) {
-        return retrofit.create(MainService.class);
+    MovieService provideMainService(Retrofit retrofit) {
+        return retrofit.create(MovieService.class);
     }
 
     @Provides
