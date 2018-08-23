@@ -3,6 +3,7 @@ package hu.horvath.martina.project.presenter;
 import javax.inject.Inject;
 
 import hu.horvath.martina.project.data.model.Movie;
+import hu.horvath.martina.project.data.model.MovieDetails;
 import hu.horvath.martina.project.data.repository.remote.MainRemoteRepositoryImpl;
 import hu.horvath.martina.project.view.fragment.MovieDetailFragment;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -21,13 +22,13 @@ public class MovieDetailFragmentPresenter {
         this.view = view;
     }
 
-    public void getMovieById(String id) {
-        mainRemoteRepository.getMovieById(id)
+    public void getMovieDetailsById(String id) {
+        mainRemoteRepository.getMovieDetailsById(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new DisposableSubscriber<Movie>() {
+                .subscribe(new DisposableSubscriber<MovieDetails>() {
                     @Override
-                    public void onNext(Movie movie) {
+                    public void onNext(MovieDetails movie) {
                         view.loadMovie(movie);
                     }
 

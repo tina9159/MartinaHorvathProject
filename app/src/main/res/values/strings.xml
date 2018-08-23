@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Project</string>
     <string name="noItem">Nincs ilyen film!</string>
+    <string name="titleText">Title:</string>
+    <string name="dateText">Release date:</string>
+    <string name="budgetText">Budget:</string>
+    <string name="overviewText">Overview:</string>
 </resources>

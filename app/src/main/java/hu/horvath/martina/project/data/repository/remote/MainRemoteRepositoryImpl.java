@@ -5,6 +5,7 @@ import javax.inject.Inject;
 
 import hu.horvath.martina.project.data.api.MovieService;
 import hu.horvath.martina.project.data.model.Movie;
+import hu.horvath.martina.project.data.model.MovieDetails;
 import hu.horvath.martina.project.data.model.Response;
 import io.reactivex.Flowable;
 
@@ -27,7 +28,7 @@ public class MainRemoteRepositoryImpl implements MainRemoteRepository {
     }
 
     @Override
-    public Flowable<Movie> getMovieById(String id) {
-        return service.getMovieById(id, API_KEY);
+    public Flowable<MovieDetails> getMovieDetailsById(String id) {
+        return service.getMovieDetailsById(id, API_KEY);
     }
 }

@@ -45,27 +45,4 @@ public class MovieFragmentPresenter {
                     }
                 });
     }
-
-    public void getMovieById(String id) {
-        mainRemoteRepository.getMovieById(id)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new DisposableSubscriber<Movie>() {
-                    @Override
-                    public void onNext(Movie movie) {
-                        view.loadMovie(movie);
-                    }
-
-                    @Override
-                    public void onError(Throwable t) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
-    }
-
 }

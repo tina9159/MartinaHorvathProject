@@ -21,6 +21,8 @@ import hu.horvath.martina.project.view.activity.MainActivity;
 import hu.horvath.martina.project.view.adapter.MoviesAdapter;
 import hu.horvath.martina.project.view.interfaces.MainFragmentView;
 
+import static hu.horvath.martina.project.view.fragment.MovieDetailFragment.ID_KEY;
+
 public class MainFragment extends DaggerFragment implements MainFragmentView {
 
     @Inject
@@ -82,8 +84,10 @@ public class MainFragment extends DaggerFragment implements MainFragmentView {
             Movie movie = adapter.getItem(position);
 
             MovieDetailFragment movieDetailFragment = MovieDetailFragment.newInstance();
+            Bundle args = new Bundle();
+            args.putString(ID_KEY, movie.getId());
+            movieDetailFragment.setArguments(args);
             activity.changeFragment(movieDetailFragment);
-
         }));
     }
 

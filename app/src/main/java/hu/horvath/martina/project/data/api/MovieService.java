@@ -1,7 +1,7 @@
 package hu.horvath.martina.project.data.api;
 
 
-import hu.horvath.martina.project.data.model.Movie;
+import hu.horvath.martina.project.data.model.MovieDetails;
 import hu.horvath.martina.project.data.model.Response;
 import io.reactivex.Flowable;
 import retrofit2.http.GET;
@@ -15,7 +15,7 @@ public interface MovieService {
                                  @Query("query") String query);
 
     @GET("movie/{movie_id}")
-    Flowable<Movie> getMovieById(@Path("movie_id") String id,
-                                 @Query("api_key") String apiKey);
+    Flowable<MovieDetails> getMovieDetailsById(@Path("movie_id") String id,
+                                               @Query("api_key") String apiKey);
 
 }
